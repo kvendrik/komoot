@@ -2,6 +2,8 @@ import { geocode, discoverTours } from "../api.ts";
 import { formatTourList, formatPageInfo, formatError } from "../format.ts";
 import chalk from "chalk";
 
+const VALID_SPORTS = ["racebike", "touringbicycle", "mtb", "citybike", "e_racebike"];
+
 export async function search(opts: {
   location?: string;
   lat?: number;
@@ -13,10 +15,29 @@ export async function search(opts: {
   json?: boolean;
 }) {
   try {
+    if (opts.limit < 1) {
+      console.error(formatError("--limit must be at least 1"));
+      process.exit(1);
+    }
+
+    if (opts.page < 0) {
+      console.error(formatError("--page must be 0 or greater"));
+      process.exit(1);
+    }
+
+    if (!VALID_SPORTS.includes(opts.sport)) {
+      console.error(formatError(`Invalid sport "${opts.sport}". Valid types: ${VALID_SPORTS.join(", ")}`));
+      process.exit(1);
+    }
+
     let lat: number;
     let lng: number;
 
     if (opts.lat !== undefined && opts.lng !== undefined) {
+      if (isNaN(opts.lat) || isNaN(opts.lng)) {
+        console.error(formatError("--lat and --lng must be valid numbers"));
+        process.exit(1);
+      }
       lat = opts.lat;
       lng = opts.lng;
     } else if (opts.location) {
