@@ -11,14 +11,37 @@ Designed for use with AI agents — see [AGENT.md](AGENT.md) for agent instructi
 ### Search for routes
 
 ```bash
-bunx komoot search --location "Haarlem"
-bunx komoot search --lat 52.37 --lng 4.89 --sport mtb --limit 5
+$ bunx komoot search --location "Amsterdam" --sport racebike --limit 5
+
+Searching near Amsterdam, Noord-Holland, Nederland
+
+1. Around Waterland from Amsterdam CS (1867432235)
+   45.1 km  ·  69 m elevation  ·  114 min  ·  difficulty: difficult
+   https://www.komoot.com/tour/1867432235
+
+2. Hoge Duin en Daalseweg Climb – Spaarndammerdijk loop from Europaplein (28075115)
+   99.9 km  ·  217 m elevation  ·  251 min  ·  difficulty: moderate
+   https://www.komoot.com/tour/28075115
+
+3. Windmill on the Amstel – Sunrise Over the Amstel loop from Amsterdam Zuid (15229918)
+   56.7 km  ·  103 m elevation  ·  144 min  ·  difficulty: moderate
+   https://www.komoot.com/tour/15229918
+
+4. Spaardammerdijk – Spaarndammerdijk loop from Jan van Galenstraat (39020274)
+   53.9 km  ·  128 m elevation  ·  133 min  ·  difficulty: moderate
+   https://www.komoot.com/tour/39020274
+
+5. Windmill on the Amstel – Sunrise Over the Amstel loop from Rokin (39048613)
+   47.4 km  ·  80 m elevation  ·  121 min  ·  difficulty: moderate
+   https://www.komoot.com/tour/39048613
+
+Page 1 of 60 (296 total routes)
 ```
 
 ### Download a route as GPX
 
 ```bash
-bunx komoot download 1867482138 --out route.gpx
+bunx komoot download 1867432235 --out route.gpx
 ```
 
 Requires `KOMOOT_EMAIL` and `KOMOOT_PASSWORD` environment variables.
