@@ -1,4 +1,4 @@
-# komoot
+# 🚴‍♂️ komoot
 
 Discover cycling routes and download GPX files from Komoot, from your terminal.
 
