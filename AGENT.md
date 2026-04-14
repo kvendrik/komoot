@@ -13,7 +13,7 @@ bunx komoot search --location "Haarlem" --json [--radius 30000] [--sport racebik
 Or search by coordinates:
 
 ```bash
-bunx komoot search --lat 52.37 --lng 4.89
+bunx komoot search --lat 52.37 --lng 4.89 --json
 ```
 
 - `--location`: city or place name (geocoded via OpenStreetMap)

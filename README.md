@@ -58,3 +58,4 @@ Requires `KOMOOT_EMAIL` and `KOMOOT_PASSWORD` environment variables.
 | `--sport` | `racebike` | `racebike`, `touringbicycle`, `mtb`, `citybike`, `e_racebike` |
 | `--limit` | `10` | Number of results |
 | `--page` | `0` | Page number (0-based) |
+| `--json` | | Output as JSON |
