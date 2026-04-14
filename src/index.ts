@@ -22,7 +22,8 @@ program
   .option("--sport <type>", "Sport type (racebike, touringbicycle, mtb, citybike, e_racebike)", "racebike")
   .option("--limit <n>", "Number of results", (v) => parseInt(v, 10), 10)
   .option("--page <n>", "Page number (0-based)", (v) => parseInt(v, 10), 0)
-  .action(async (opts: { location?: string; lat?: number; lng?: number; radius: number; sport: string; limit: number; page: number }) => {
+  .option("--json", "Output as JSON")
+  .action(async (opts: { location?: string; lat?: number; lng?: number; radius: number; sport: string; limit: number; page: number; json?: boolean }) => {
     await search(opts);
   });
 

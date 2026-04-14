@@ -10,6 +10,7 @@ export async function search(opts: {
   sport: string;
   limit: number;
   page: number;
+  json?: boolean;
 }) {
   try {
     let lat: number;
@@ -22,7 +23,7 @@ export async function search(opts: {
       const geo = await geocode(opts.location);
       lat = geo.lat;
       lng = geo.lng;
-      console.log(chalk.dim(`Searching near ${geo.displayName}\n`));
+      if (!opts.json) console.log(chalk.dim(`Searching near ${geo.displayName}\n`));
     } else {
       console.error(formatError("Provide --location or both --lat and --lng"));
       process.exit(1);
@@ -39,7 +40,29 @@ export async function search(opts: {
 
     const tours = result._embedded?.items;
     if (!tours || tours.length === 0) {
-      console.log(chalk.yellow("No routes found."));
+      if (opts.json) {
+        console.log(JSON.stringify({ tours: [], page: result.page }));
+      } else {
+        console.log(chalk.yellow("No routes found."));
+      }
+      return;
+    }
+
+    if (opts.json) {
+      console.log(JSON.stringify({
+        tours: tours.map((t) => ({
+          id: t.id.replace(/^e/, ""),
+          name: t.name,
+          distance_km: +(t.distance / 1000).toFixed(1),
+          elevation_up_m: Math.round(t.elevation_up),
+          elevation_down_m: Math.round(t.elevation_down),
+          duration_min: Math.round(t.duration / 60),
+          difficulty: t.difficulty?.grade ?? "unknown",
+          sport: t.sport,
+          url: `https://www.komoot.com/tour/${t.id.replace(/^e/, "")}`,
+        })),
+        page: result.page,
+      }));
       return;
     }
 

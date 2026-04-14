@@ -7,7 +7,7 @@ You have access to a CLI tool called `komoot` that can search for cycling routes
 ### Search for routes
 
 ```bash
-bunx komoot search --location "Haarlem" [--radius 30000] [--sport racebike] [--limit 10] [--page 0]
+bunx komoot search --location "Haarlem" --json [--radius 30000] [--sport racebike] [--limit 10] [--page 0]
 ```
 
 Or search by coordinates:
@@ -22,6 +22,7 @@ bunx komoot search --lat 52.37 --lng 4.89
 - `--sport`: sport type — `racebike`, `touringbicycle`, `mtb`, `citybike`, `e_racebike` (default: racebike)
 - `--limit`: number of results (default: 10)
 - `--page`: page number, 0-based (default: 0)
+- `--json`: output as JSON (recommended for agents)
 
 Returns route details: name, distance (km), elevation gain (m), duration (min), difficulty, and a direct link to the route on Komoot.
 
@@ -38,7 +39,7 @@ Requires `KOMOOT_EMAIL` and `KOMOOT_PASSWORD` environment variables for authenti
 
 ## Typical workflow
 
-1. Run `bunx komoot search --location "Amsterdam"` to find routes near a location
+1. Run `bunx komoot search --location "Amsterdam" --json` to find routes near a location
 2. Browse results, use `--page` to paginate
 3. Run `bunx komoot download <tour-id>` to save a route as GPX
 
