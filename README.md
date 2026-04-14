@@ -1,6 +1,6 @@
 # 🚴‍♂️ komoot
 
-Discover cycling routes and download GPX files from Komoot, from your terminal.
+Discover cycling routes and download GPX files from [Komoot](https://komoot.com/), from your terminal.
 
 Designed for use with AI agents — see [AGENT.md](AGENT.md) for agent instructions.
 
