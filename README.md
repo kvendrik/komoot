@@ -2,9 +2,9 @@
 
 Discover cycling routes and download GPX files from Komoot, from your terminal.
 
-I use this through my AI cycling coach on [Backoffice](https://github.com/kvendrik/backoffice) to plan routes for recommended cycling workouts.
-
 Designed for use with AI agents — see [AGENT.md](AGENT.md) for agent instructions.
+
+> I use this through my AI cycling coach on [Backoffice](https://github.com/kvendrik/backoffice) to plan routes for recommended cycling workouts.
 
 ## Usage
 
