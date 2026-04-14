@@ -40,6 +40,8 @@ Page 1 of 60 (296 total routes)
 
 ### Download a route as GPX
 
+Use the tour ID from the search results to download a GPX file:
+
 ```bash
 bunx komoot download 1867432235 --out route.gpx
 ```
